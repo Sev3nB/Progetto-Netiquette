@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <title>Netiquette - Introduzione</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+<button id="topBtn" title="Torna su">↑</button>
 
 <body>
     <div class="header">
@@ -45,15 +51,16 @@
             Seguire la Netiquette significa:
         </p>
         <ul>
-            <li>non creare conflitti inutili</li>
-            <li>evitare malintesi</li>
-            <li>rendere intenret un luogo piu sicuro e civile per tutti</li>
+            <li>Non creare conflitti inutili</li>
+            <li>Evitare malintesi</li>
+            <li>Rendere intenret un luogo piu sicuro e civile per tutti</li>
         </ul>
+
     </div>
     <div class="container">
         <h1>Dove si applica</h1>
         <p>
-            QLa Netiquette vale in quasi tutti gli spazi online dove si interagisce con altre persone.
+            La Netiquette vale in quasi tutti gli spazi online dove si interagisce con altre persone.
         </p>
         <p>
             Ecco alcuni esempi:
@@ -66,6 +73,21 @@
         </ul>
         <p>In ognuno di questi ambienti, il modo in cui scrivi fa la differenza</p>
     </div>
+    <script>
+        const topBtn = document.getElementById("topBtn");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+
+        topBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+
 </body>
 
 </html>
