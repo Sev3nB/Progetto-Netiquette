@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+<button id="topBtn" title="Torna su">↑</button>
 
 <body>
     <div class="header">
@@ -103,6 +104,20 @@
             materiali, esempi e risorse utili per approfondire ancora meglio come comportarsi online in modo corretto e
             responsabile.</p>
     </div>
+    <script>
+        const topBtn = document.getElementById("topBtn");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+
+        topBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
 </body>
 
 </html>
