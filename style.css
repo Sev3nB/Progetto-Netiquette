@@ -147,3 +147,72 @@ li:hover {
     border-radius: 10px;
     margin-bottom: 1em;
 }
+
+/* Base per il menu dropdown */
+.menu-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #f0eaff;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 20px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* Hover su desktop */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Nascondi il menu inizialmente */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2d2d44;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #f0eaff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+/* Su dispositivi mobili, il dropdown sarà cliccabile */
+@media screen and (max-width: 600px) {
+    .dropdown:hover .dropdown-content {
+        display: none;
+        /* Nascondi l'hover per mobile */
+    }
+
+    .dropdown-content {
+        display: block;
+        /* Menu sempre visibile sui dispositivi mobili */
+        position: static;
+        /* Rendi il menu normale, non assoluto */
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        background-color: #7727c252;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
+
+    .nav-link {
+        cursor: pointer;
+    }
+}

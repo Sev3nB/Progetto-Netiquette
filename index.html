@@ -20,7 +20,15 @@
             <div class="menu">
                 <a href="index.html">Intro</a>
                 <a href="regole.html">Regole</a>
-                <a href="risorse.html">Risorse</a>
+                <div class="menu-item dropdown">
+                    <span class="nav-link dropbtn" onclick="toggleDropdown(event)">Risorse ▾</span>
+                    <div class="dropdown-content">
+                        <a href="risorse/approfondimenti.html">Approfondimenti</a>
+                        <a href="risorse/quiz.html">Quiz</a>
+                        <a href="risorse/materiale.html">Materiale</a>
+                    </div>
+                </div>
+
             </div>
         </nav>
     </div>
@@ -86,6 +94,25 @@
         topBtn.onclick = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
+
+        function toggleDropdown(event) {
+            if (window.innerWidth <= 600) {
+                const dropdownContent = event.target.nextElementSibling;
+                dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+                event.stopPropagation(); // Evita la chiusura subito dopo il clic
+            }
+        }
+
+        // Chiudi il menu se si clicca fuori (solo su mobile)
+        window.addEventListener('click', function (event) {
+            if (window.innerWidth <= 600) {
+                const dropdown = document.querySelector('.dropdown');
+                const dropdownContent = document.querySelector('.dropdown-content');
+                if (!dropdown.contains(event.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        });
     </script>
 
 </body>
