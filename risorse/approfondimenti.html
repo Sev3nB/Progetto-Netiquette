@@ -1,10 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approfondimenti - La Netiquette</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
+<button id="topBtn" title="Torna su">↑</button>
+
 <body>
-    
+
+    <div class="header">
+        <h2>La Netiquette</h2>
+        <nav class="navbar">
+            <div class="menu">
+                <a href="../index.html">Intro</a>
+                <a href="../regole.html">Regole</a>
+                <div class="menu-item dropdown">
+                    <span class="nav-link dropbtn" onclick="toggleDropdown(event)">Risorse ▾</span>
+                    <div class="dropdown-content">
+                        <a href="approfondimenti.html">Approfondimenti</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="materiale.html">Materiale</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="content">
+        <div class="container">
+            <h3>📚 Glossario dei termini</h3>
+            <ul>
+                <li><strong>Flame:</strong> discussione online molto accesa o offensiva.</li>
+                <li><strong>Spam:</strong> messaggi indesiderati inviati in massa.</li>
+                <li><strong>LOL:</strong> acronimo per "Laughing Out Loud", ridere forte.</li>
+                <li><strong>Troll:</strong> persona che provoca o disturba apposta.</li>
+                <li><strong>DM:</strong> messaggio privato (Direct Message).</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h3>💡 Curiosità dal web</h3>
+            <ul>
+                <li>La prima email è stata inviata nel 1971.</li>
+                <li>Il termine "Netiquette" nasce unendo "network" e "etiquette".</li>
+                <li>Ogni giorno si inviano oltre 300 miliardi di email nel mondo.</li>
+                <li>Il primo sito web è ancora online: info.cern.ch</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h3>🔐 Privacy e sicurezza</h3>
+            <ul>
+                <li>Non condividere mai password con nessuno.</li>
+                <li>Usa l'autenticazione a due fattori se disponibile.</li>
+                <li>Attento ai link sospetti: potrebbero portare a truffe.</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h3>🌍 Comunicazione digitale responsabile</h3>
+            <p>Comunicare online richiede attenzione. Ricorda sempre che dietro uno schermo c'è una persona vera.</p>
+            <ul>
+                <li>Evita il linguaggio aggressivo.</li>
+                <li>Non diffondere notizie false.</li>
+                <li>Rispetta il punto di vista degli altri.</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h3>🧠 Storia della netiquette</h3>
+            <p>Negli anni '80, quando internet era usato soprattutto da ricercatori, si sentì il bisogno di regole base
+                per comunicare in modo civile. Così nacque la netiquette. Le prime linee guida furono scritte nei gruppi
+                di discussione (Usenet), dove il rispetto era essenziale per evitare il caos.</p>
+        </div>
+
+        <div class="container">
+            <h3>🕵️‍♂️ Trucchi per riconoscere comportamenti scorretti online</h3>
+            <ul>
+                <li>Messaggi scritti tutti in maiuscolo (in rete equivale a urlare).</li>
+                <li>Link condivisi senza contesto → potrebbero essere spam.</li>
+                <li>Profili senza foto o descrizione che mandano messaggi sospetti.</li>
+                <li>Persone che cambiano spesso opinione per provocare.</li>
+            </ul>
+        </div>
+
+
+    </main>
+
+    <script>
+        const topBtn = document.getElementById("topBtn");
+        window.onscroll = () => {
+            topBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+        };
+        topBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        function toggleDropdown(event) {
+            const dropdown = event.currentTarget.nextElementSibling;
+            dropdown.classList.toggle("show");
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.dropbtn')) {
+                let dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let d of dropdowns) {
+                    d.classList.remove('show');
+                }
+            }
+        };
+    </script>
+
 </body>
+
 </html>

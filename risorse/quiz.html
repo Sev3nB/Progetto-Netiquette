@@ -1,10 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>title</title>
+    <meta charset="UTF-8">
+    <title>Netiquette - Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<button id="topBtn" title="Torna su">↑</button>
+
 <body>
-    
+    <div class="header">
+        <h2>La Netiquette</h2>
+        <nav class="navbar">
+            <div class="menu">
+                <a href="../index.html">Intro</a>
+                <a href="../regole.html">Regole</a>
+                <div class="menu-item dropdown">
+                    <span class="nav-link dropbtn" onclick="toggleDropdown(event)">Risorse ▾</span>
+                    <div class="dropdown-content">
+                        <a href="approfondimenti.html">Approfondimenti</a>
+                        <a href="quiz.html">Quiz</a>
+                        <a href="materiale.html">Materiale</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Quiz sulla Netiquette</h1>
+        <p>Rispondi alle domande e verifica quanto ne sai.</p>
+
+        <div class="quiz">
+            <h3>1. Scrivere in maiuscolo in una chat significa:</h3>
+            <label><input type="radio" name="q1" value="0"> Niente di particolare</label><br>
+            <label><input type="radio" name="q1" value="1"> Urlare o sembrare aggressivi</label><br>
+            <label><input type="radio" name="q1" value="0"> Scrivere con più enfasi</label><br>
+        </div>
+
+        <div class="quiz">
+            <h3>2. Se ricevi un messaggio provocatorio, è meglio:</h3>
+            <label><input type="radio" name="q2" value="1"> Ignorarlo o rispondere con calma</label><br>
+            <label><input type="radio" name="q2" value="0"> Rispondere con un insulto</label><br>
+            <label><input type="radio" name="q2" value="0"> Girarlo ai tuoi amici</label><br>
+        </div>
+
+        <div class="quiz">
+            <h3>3. Quale di questi comportamenti è corretto?</h3>
+            <label><input type="radio" name="q3" value="1"> Controllare ortografia e grammatica prima di
+                inviare</label><br>
+            <label><input type="radio" name="q3" value="0"> Usare abbreviazioni incomprensibili</label><br>
+            <label><input type="radio" name="q3" value="0"> Inviare messaggi lunghissimi senza rileggere</label><br>
+        </div>
+
+        <div class="quiz">
+            <h3>4. Quando è giusto fare spam?</h3>
+            <label><input type="radio" name="q4" value="0"> Quando vuoi farti notare</label><br>
+            <label><input type="radio" name="q4" value="0"> Quando il gruppo è silenzioso</label><br>
+            <label><input type="radio" name="q4" value="1"> Mai</label><br>
+        </div>
+
+        <div class="quiz">
+            <h3>5. In quale situazione è meglio NON inviare un meme?</h3>
+            <label><input type="radio" name="q5" value="1"> Durante una discussione seria</label><br>
+            <label><input type="radio" name="q5" value="0"> In un gruppo di amici</label><br>
+            <label><input type="radio" name="q5" value="0"> Per fare una battuta leggera</label><br>
+        </div>
+
+        <button id="submit" class="check-btn" onclick="checkQuiz()">Controlla le risposte</button>
+        <p id="result" style="margin-top: 1em; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        const topBtn = document.getElementById("topBtn");
+        window.onscroll = () => {
+            topBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+        };
+        topBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        function checkQuiz() {
+            const total = 5;
+            let score = 0;
+            for (let i = 1; i <= total; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer && answer.value === "1") score++;
+            }
+            const result = document.getElementById("result");
+            result.innerText = `Hai risposto correttamente a ${score} su ${total} domande.`;
+        }
+    </script>
 </body>
+
 </html>
