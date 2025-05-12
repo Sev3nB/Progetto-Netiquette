@@ -20,8 +20,8 @@
                 <a href="../index.html">Intro</a>
                 <a href="../regole.html">Regole</a>
                 <div class="menu-item dropdown">
-                    <span class="nav-link dropbtn" onclick="toggleDropdown(event)">Risorse ▾</span>
-                    <div class="dropdown-content">
+                    <span class="nav-link dropbtn" onclick="toggleDropdown()">Risorse ▾</span>
+                    <div class="dropdown-content" id="dropdownMenu">
                         <a href="approfondimenti.html">Approfondimenti</a>
                         <a href="quiz.html">Quiz</a>
                         <a href="materiale.html">Materiale</a>
@@ -64,25 +64,31 @@
     <script>
         const topBtn = document.getElementById("topBtn");
         window.onscroll = () => {
-            topBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
         };
+
         topBtn.onclick = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
-        function toggleDropdown(event) {
-            event.stopPropagation();
-            const dropdown = event.target.nextElementSibling;
-            dropdown.classList.toggle("show");
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
         }
 
-        window.onclick = function (event) {
-            const dropdowns = document.getElementsByClassName("dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                if (dropdowns[i].classList.contains("show")) {
-                    dropdowns[i].classList.remove("show");
-                }
+        // Chiudi il menu cliccando fuori
+        document.addEventListener("click", function (event) {
+            const dropdown = document.getElementById("dropdownMenu");
+            const trigger = document.querySelector(".dropbtn");
+
+            if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
+                dropdown.style.display = "none";
             }
-        }
+        });
     </script>
 
 </body>

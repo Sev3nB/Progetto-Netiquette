@@ -198,7 +198,7 @@ li:hover {
     }
 
     .dropdown-content {
-        display: block;
+        /* display: block; */
         /* Menu sempre visibile sui dispositivi mobili */
         position: static;
         /* Rendi il menu normale, non assoluto */
