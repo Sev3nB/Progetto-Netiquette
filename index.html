@@ -101,11 +101,10 @@
             if (window.innerWidth <= 600) {
                 const dropdownContent = event.target.nextElementSibling;
                 dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
-                event.stopPropagation(); // Evita la chiusura subito dopo il clic
+                event.stopPropagation();
             }
         }
 
-        // Chiudi il menu se si clicca fuori (solo su mobile)
         window.addEventListener('click', function (event) {
             if (window.innerWidth <= 600) {
                 const dropdown = document.querySelector('.dropdown');
